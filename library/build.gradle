@@ -14,3 +14,13 @@ android {
         versionName VERSION_NAME
     }
 }
+
+task installArchives(type: Upload) {
+    description "Installs the artifacts to the local Maven repository."
+    configuration = configurations['archives']
+    repositories {
+        mavenDeployer {
+            repository url: "file://${System.env.HOME}/.m2/repository"
+        }
+    }
+}
