@@ -25,39 +25,38 @@ import android.view.MotionEvent;
  */
 public class RotateGestureDetector extends TwoFingerGestureDetector {
 
-	/**
-	 * Listener which must be implemented which is used by RotateGestureDetector
-	 * to perform callbacks to any implementing class which is registered to a
-	 * RotateGestureDetector via the constructor.
-	 * 
-	 * @see RotateGestureDetector.SimpleOnRotateGestureListener
-	 */
-	public interface OnRotateGestureListener {
-		public boolean onRotate(RotateGestureDetector detector);
-		public boolean onRotateBegin(RotateGestureDetector detector);
-		public void onRotateEnd(RotateGestureDetector detector);
-	}
-	
-	/**
-	 * Helper class which may be extended and where the methods may be
-	 * implemented. This way it is not necessary to implement all methods
-	 * of OnRotateGestureListener.
-	 */
-	public static class SimpleOnRotateGestureListener implements OnRotateGestureListener {
-	    public boolean onRotate(RotateGestureDetector detector) {
-	        return false;
-	    }
+    /**
+     * Listener which must be implemented which is used by RotateGestureDetector
+     * to perform callbacks to any implementing class which is registered to a
+     * RotateGestureDetector via the constructor.
+     *
+     * @see RotateGestureDetector.SimpleOnRotateGestureListener
+     */
+    public interface OnRotateGestureListener {
+        public boolean onRotate(RotateGestureDetector detector);
+        public boolean onRotateBegin(RotateGestureDetector detector);
+        public void onRotateEnd(RotateGestureDetector detector);
+    }
 
-	    public boolean onRotateBegin(RotateGestureDetector detector) {
-	        return true;
-	    }
+    /**
+     * Helper class which may be extended and where the methods may be
+     * implemented. This way it is not necessary to implement all methods
+     * of OnRotateGestureListener.
+     */
+    public static class SimpleOnRotateGestureListener implements OnRotateGestureListener {
+        public boolean onRotate(RotateGestureDetector detector) {
+            return false;
+        }
 
-	    public void onRotateEnd(RotateGestureDetector detector) {
-	    	// Do nothing, overridden implementation may be used
-	    }
-	}
+        public boolean onRotateBegin(RotateGestureDetector detector) {
+            return true;
+        }
 
-    
+        public void onRotateEnd(RotateGestureDetector detector) {
+            // Do nothing, overridden implementation may be used
+        }
+    }
+
     private final OnRotateGestureListener mListener;
     private boolean mSloppyGesture;
 
