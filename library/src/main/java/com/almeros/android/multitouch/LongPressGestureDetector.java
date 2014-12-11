@@ -8,7 +8,7 @@ import android.view.ViewConfiguration;
 /**
  * Created by rharter on 12/11/14.
  */
-public class LongPressGestureDetector extends BaseGestureDetector {
+public class LongPressGestureDetector {
 
     public interface OnLongPressGestureListener {
         public void onLongPressBegin(LongPressGestureDetector detector);
@@ -31,7 +31,6 @@ public class LongPressGestureDetector extends BaseGestureDetector {
     };
 
     public LongPressGestureDetector(Context context, OnLongPressGestureListener listener) {
-        super(context);
         this.listener = listener;
 
         ViewConfiguration vc = ViewConfiguration.get(context);
@@ -39,10 +38,9 @@ public class LongPressGestureDetector extends BaseGestureDetector {
         slop = vc.getScaledTouchSlop() * 2;
     }
 
-    @Override public boolean onTouchEvent(MotionEvent event) {
+    public boolean onTouchEvent(MotionEvent event) {
         switch (event.getActionMasked()) {
             case MotionEvent.ACTION_DOWN:
-                updateStateByEvent(event);
                 pressing = true;
                 downX = event.getRawX();
                 downY = event.getRawY();
@@ -55,17 +53,12 @@ public class LongPressGestureDetector extends BaseGestureDetector {
                     break;
                 }
             default:
-                updateStateByEvent(event);
                 if (pressing) {
                     listener.onLongPressEnd(this);
                 }
                 pressing = false;
                 handler.removeCallbacks(callback);
-                resetState();
         }
         return true;
     }
-
-    @Override protected void handleStartProgressEvent(int actionCode, MotionEvent event) {}
-    @Override protected void handleInProgressEvent(int actionCode, MotionEvent event) {}
 }

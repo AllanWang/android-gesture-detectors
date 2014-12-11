@@ -20,6 +20,10 @@ task installArchives(type: Upload) {
     configuration = configurations['archives']
     repositories {
         mavenDeployer {
+            pom.groupId = GROUP
+            pom.artifactId = POM_ARTIFACT_ID
+            pom.version = VERSION_NAME
+
             repository url: "file://${System.env.HOME}/.m2/repository"
         }
     }

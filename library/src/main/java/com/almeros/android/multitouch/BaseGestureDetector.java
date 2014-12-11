@@ -88,7 +88,7 @@ public abstract class BaseGestureDetector {
     
     
     protected void updateStateByEvent(MotionEvent curr){
-    	final MotionEvent prev = mPrevEvent;
+    	final MotionEvent prev = mCurrEvent;
     	
     	// Reset mCurrEvent
         if (mCurrEvent != null) {
@@ -111,12 +111,16 @@ public abstract class BaseGestureDetector {
         mCurrFocusX = sumX / div;
         mCurrFocusY = sumY / div;
 
-        // Delta time
-        mTimeDelta = curr.getEventTime() - prev.getEventTime();
-
         // Pressure
-        mCurrPressure = curr.getPressure(curr.getActionIndex());
         mPrevPressure = prev.getPressure(prev.getActionIndex());
+
+        if (prev != null) {
+            // Delta time
+            mTimeDelta = curr.getEventTime() - prev.getEventTime();
+
+            // Pressure
+            mCurrPressure = curr.getPressure(curr.getActionIndex());
+        }
     }
 
     /**
