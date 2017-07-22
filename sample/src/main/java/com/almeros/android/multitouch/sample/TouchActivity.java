@@ -39,7 +39,7 @@ import com.almeros.android.multitouch.ShoveGestureDetector;
  */
 public class TouchActivity extends Activity implements OnTouchListener {
 
-	private Matrix mMatrix = new Matrix();
+    private Matrix mMatrix = new Matrix();
     private float mScaleFactor = .4f;
     private float mRotationDegrees = 0.f;
     private float mFocusX = 0.f;

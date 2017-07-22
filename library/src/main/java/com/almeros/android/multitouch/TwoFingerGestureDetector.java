@@ -32,11 +32,11 @@ public abstract class TwoFingerGestureDetector extends BaseGestureDetector {
     private float mRightSlopEdge;
     private float mBottomSlopEdge;
     
-	protected float mPrevFingerDiffX;
-	protected float mPrevFingerDiffY;
-	protected float mCurrFingerDiffX;
-	protected float mCurrFingerDiffY;
-    
+    protected float mPrevFingerDiffX;
+    protected float mPrevFingerDiffY;
+    protected float mCurrFingerDiffX;
+    protected float mCurrFingerDiffY;
+
     private float mCurrLen;
     private float mPrevLen;
 	
@@ -47,17 +47,17 @@ public abstract class TwoFingerGestureDetector extends BaseGestureDetector {
         mEdgeSlop = config.getScaledEdgeSlop();       	
     }
     
-	@Override
-	protected abstract void handleStartProgressEvent(int actionCode, MotionEvent event);
+    @Override
+    protected abstract void handleStartProgressEvent(int actionCode, MotionEvent event);
 
-	@Override
-	protected abstract void handleInProgressEvent(int actionCode, MotionEvent event);
-	
-	protected void updateStateByEvent(MotionEvent curr){
-		super.updateStateByEvent(curr);
-		
-		final MotionEvent prev = mPrevEvent;
-		
+    @Override
+    protected abstract void handleInProgressEvent(int actionCode, MotionEvent event);
+
+    protected void updateStateByEvent(MotionEvent curr){
+        super.updateStateByEvent(curr);
+
+        final MotionEvent prev = mPrevEvent;
+
         mCurrLen = -1;
         mPrevLen = -1;
 
@@ -70,7 +70,7 @@ public abstract class TwoFingerGestureDetector extends BaseGestureDetector {
         final float pvy = py1 - py0;
         mPrevFingerDiffX = pvx;
         mPrevFingerDiffY = pvy;
-        
+
         // Current
         final float cx0 = curr.getX(0);
         final float cy0 = curr.getY(0);
@@ -80,7 +80,7 @@ public abstract class TwoFingerGestureDetector extends BaseGestureDetector {
         final float cvy = cy1 - cy0;
         mCurrFingerDiffX = cvx;
         mCurrFingerDiffY = cvy;
-	}
+    }
 	
     /**
      * Return the current distance between the two pointers forming the
@@ -140,13 +140,13 @@ public abstract class TwoFingerGestureDetector extends BaseGestureDetector {
         return 0f;
     }
 
-	/**
-	 * Check if we have a sloppy gesture. Sloppy gestures can happen if the edge
-	 * of the user's hand is touching the screen, for example.
-	 * 
-	 * @param event
-	 * @return
-	 */
+    /**
+     * Check if we have a sloppy gesture. Sloppy gestures can happen if the edge
+     * of the user's hand is touching the screen, for example.
+     *
+     * @param event
+     * @return
+     */
     protected boolean isSloppyGesture(MotionEvent event){
         // As orientation can change, query the metrics in touch down
         DisplayMetrics metrics = mContext.getResources().getDisplayMetrics();
