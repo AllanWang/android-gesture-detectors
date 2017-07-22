@@ -35,9 +35,9 @@ public class MoveGestureDetector extends BaseGestureDetector {
 	 * @see MoveGestureDetector.SimpleOnMoveGestureListener
 	 */
 	public interface OnMoveGestureListener {
-		public boolean onMove(MoveGestureDetector detector);
-		public boolean onMoveBegin(MoveGestureDetector detector);
-		public void onMoveEnd(MoveGestureDetector detector);
+		boolean onMove(MoveGestureDetector detector);
+		boolean onMoveBegin(MoveGestureDetector detector);
+		void onMoveEnd(MoveGestureDetector detector);
 	}
 	
 	/**
@@ -142,7 +142,7 @@ public class MoveGestureDetector extends BaseGestureDetector {
 	 * Determine (multi)finger focal point (a.k.a. center point between all
 	 * fingers)
 	 * 
-	 * @param MotionEvent e
+	 * @param e
 	 * @return PointF focal point
 	 */
     private PointF determineFocalPoint(MotionEvent e){

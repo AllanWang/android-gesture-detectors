@@ -33,9 +33,9 @@ public class RotateGestureDetector extends TwoFingerGestureDetector {
      * @see RotateGestureDetector.SimpleOnRotateGestureListener
      */
     public interface OnRotateGestureListener {
-        public boolean onRotate(RotateGestureDetector detector);
-        public boolean onRotateBegin(RotateGestureDetector detector);
-        public void onRotateEnd(RotateGestureDetector detector);
+        boolean onRotate(RotateGestureDetector detector);
+        boolean onRotateBegin(RotateGestureDetector detector);
+        void onRotateEnd(RotateGestureDetector detector);
     }
 
     /**

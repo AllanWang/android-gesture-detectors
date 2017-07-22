@@ -34,9 +34,9 @@ public class ShoveGestureDetector extends TwoFingerGestureDetector {
 	 * @see ShoveGestureDetector.SimpleOnShoveGestureListener
 	 */
 	public interface OnShoveGestureListener {
-		public boolean onShove(ShoveGestureDetector detector);
-		public boolean onShoveBegin(ShoveGestureDetector detector);
-		public void onShoveEnd(ShoveGestureDetector detector);
+		boolean onShove(ShoveGestureDetector detector);
+		boolean onShoveBegin(ShoveGestureDetector detector);
+		void onShoveEnd(ShoveGestureDetector detector);
 	}
 	
 	/**

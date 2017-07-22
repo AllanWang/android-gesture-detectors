@@ -11,8 +11,8 @@ import android.view.ViewConfiguration;
 public class LongPressGestureDetector {
 
     public interface OnLongPressGestureListener {
-        public void onLongPressBegin(LongPressGestureDetector detector);
-        public void onLongPressEnd(LongPressGestureDetector detector);
+        void onLongPressBegin(LongPressGestureDetector detector);
+        void onLongPressEnd(LongPressGestureDetector detector);
     }
 
     private float downX, downY;
